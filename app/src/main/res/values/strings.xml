@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RoomApplication</string>
+    <string name="user_list_is_empty">User list is empty</string>
+    <string name="first_name">First name</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="last_name">Last name</string>
+    <string name="save">Save</string>
+</resources>
