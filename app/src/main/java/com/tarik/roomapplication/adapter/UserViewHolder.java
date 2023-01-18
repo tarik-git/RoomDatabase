@@ -15,9 +15,12 @@ public class UserViewHolder extends RecyclerView.ViewHolder {
         this.binding = binding;
     }
 
-    public void onBind(User user) {
+    public void onBind(User user, UserAdapter.UserClickListener listener) {
         binding.firstNameTextView.setText(user.firstName);
         binding.lastNameTextView.setText(user.lastName);
+        binding.getRoot().setOnLongClickListener(v -> {
+            return listener.onLongClick(user);
+        });
     }
 
 }

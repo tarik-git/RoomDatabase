@@ -15,7 +15,17 @@ import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
 
+    public interface UserClickListener {
+        public void onClick(User user);
+        public boolean onLongClick(User user);
+    }
+
     private List<User> userList = new ArrayList<>();
+    private UserClickListener listener = null;
+
+    public UserAdapter(UserClickListener listener) {
+        this.listener = listener;
+    }
 
     @SuppressLint("NotifyDataSetChanged")
     public void setUserList(List<User> userList) {
@@ -33,7 +43,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
-        holder.onBind(userList.get(position));
+        holder.onBind(userList.get(position), listener);
     }
 
     @Override
